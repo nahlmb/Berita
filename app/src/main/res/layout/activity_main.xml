@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main.MainActivity">
+
+    <!-- app bar -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+           <android.support.constraint.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <TextView
+                   android:id="@+id/appName"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/bitter_bold"
+                   android:text="@string/berita_name"
+                   android:textAlignment="center"
+                   android:textColor="@color/white"
+                   android:textSize="24dp"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+
+           </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.constraint.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@id/appName"
+            android:id="@+id/cons_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="18dp"
+            android:background="@color/black"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <android.support.constraint.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:background="@drawable/shape_abutua_radius_5"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
+                >
+
+                <EditText
+                    android:id="@+id/edt_search_main"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="0dp"
+                    app:layout_constraintEnd_toStartOf="@+id/searchIcon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="48dp"
+                    android:paddingRight="14dp"
+                    android:paddingLeft="14dp"
+                    android:hint="search news"
+                    android:background="@color/transparant"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_slab"
+                    />
+
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="60dp"
+                    android:padding="10dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_search_black_24dp"/>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <include layout="@layout/activity_main_containt"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
