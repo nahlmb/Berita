@@ -62,7 +62,7 @@ public class SplashActivity extends AppCompatActivity implements IntroContract.V
     public void goToMainActivity() {
         Intent goToMain = new Intent(SplashActivity.this, MainActivity.class);
 //        goToMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        goToMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        goToMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(goToMain);
         finish();
 
@@ -72,7 +72,7 @@ public class SplashActivity extends AppCompatActivity implements IntroContract.V
     public void goToIntroActivity() {
         Intent goToIntro = new Intent(SplashActivity.this, IntroActivity.class);
 //        goToIntro.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        goToIntro.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        goToIntro.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(goToIntro);
         finish();
 
