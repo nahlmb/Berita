@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     CardView cardTellUsTopic, cardFavTopic;
     EditText edtTellUsTopic, edtSearch;
     Button btnTellUsTopic, btnFeedSetting;
-    TextView txtFavTopic, txtHelloUser, txtDate;
+    TextView txtFavTopic, txtHelloUser, txtDate, txtCategoryHeadlines, txtCountryHeadlines;
     ImageView iconSearch;
     MainPresenter presenter = new MainPresenter(this);
 
@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         String country = userInfo.getString("countryId", "");
         final String category = userInfo.getString("categoryFavorit", "");
 
+        txtCategoryHeadlines = findViewById(R.id.txt_country_headlines);
+        txtCountryHeadlines = findViewById(R.id.txt_category_headlines);
+        txtCountryHeadlines.setText(userInfo.getString("countryName", "") + " Headlines");
+        txtCategoryHeadlines.setText(userInfo.getString("categoryFavorit", "") + " Headlines");
         presenter.getCountryTopHeadline(country, category);
         presenter.getCetogoryTopHeadline(category);
 
@@ -101,8 +105,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void showLoading() {
-
-
         loading = new Dialog(this);
         loading.setContentView(R.layout.loading_layout);
         loading.setCancelable(false);
@@ -124,18 +126,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         }else {
             loading.dismiss();
         }
-    }
-
-    @Override
-    public void showFragmentList(Boolean everyThing, Boolean headLines, String params1, String shortBy) {
-        ListFragment listFragment = new ListFragment();
-        Bundle args = new Bundle();
-
-        args.putBoolean("everything", everyThing);
-        args.putBoolean("headlines", headLines);
-        args.putString("params1", params1);
-        args.putString("shortBy", shortBy);
-        listFragment.setArguments(args);
     }
 
 
@@ -213,12 +203,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             txtFavTopic.setText("News about " + topic);
             presenter.getTopicUserLike(topic);
         }
-
-    }
-
-    @Override
-    public void notYetMessage() {
-        Toast.makeText(this, "next up feature!", Toast.LENGTH_SHORT).show();
 
     }
 }
