@@ -71,7 +71,7 @@ public class IntroActivity extends AppCompatActivity implements IntroContract.Vi
                 saveData(strUserName, countrySelected, countryIdSelected, lovedCategory);
                 Intent goToMain = new Intent(IntroActivity.this, MainActivity.class);
 //                goToMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                goToMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//                goToMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(goToMain);
                 finish();
             }
